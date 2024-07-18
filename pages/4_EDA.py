@@ -41,6 +41,17 @@ abd.tick_params(labelsize=7)
 
 st.pyplot(fig)
 
+# Boxplot of electric ranges by vehicle make
+plt.figure(figsize=(14, 7))
+sns.boxplot(x='Make', y='Electric Range', data=data)
+plt.title('Electric Ranges by Vehicle Make')
+plt.xticks(rotation=70)
+plt.show()
+
+fig = px.scatter(data, x='Model Year', y='Electric Range', color='Make', title='Electric Range vs. Model Year')
+fig.show()
+
+
 # Bar plot of average electric range by vehicle make
 make_avg_range = data.groupby('Make')['Electric Range'].mean().reset_index()
 fig, ax = plt.subplots()
